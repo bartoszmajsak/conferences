@@ -1,0 +1,359 @@
+mixin slide(names, slideClasses)
+  if names
+    section(class=names+' '+slideClasses, data-bespoke-backdrop='backdrop ' + names.split(' ').map(function(name) { return 'backdrop--' + name; }).join(' '))
+      block
+  else
+    section
+      block
+
+doctype html
+html
+  head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+  title Let's develop on Prod! Wait! Whaaaat?!
+
+  link(rel='stylesheet', type='text/css', href='build/build.css')
+  link(rel='stylesheet', type='text/css', href='build/asciinema-player.css')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+
+  body
+
+    article
+
+      +slide('devoxx') 
+        h2.black Let's develop on Prod! 
+        h2.black Wait! <span class='important'>Whaaaat?!</span>
+        h4.black Bartosz Majsak
+
+      +slide('title')
+        // https://unsplash.com/photos/0MC0o-xLucM
+        h2.title Let's develop on Prod! Wait! <span class='important'>Whaaaat?!</span>
+           
+      +slide('dijkstra')
+        h4 If <span class='important'>debugging</span> is the process of<br/> <span class='important'>removing software bugs</span>, <br/>then <span class='important'>programming</span> must be the process of <br/><span class='important'>putting them in</span>.
+        h3 Edsger W. Dijkstra
+        aside(role='note') Let's start with motivational quote. J/k I'm not a coach. And it's actually a  bit demotivating.
+      
+      +slide 
+        img.schemash(src='images/fifa.gif')
+
+      +slide
+        img.schemash(src='images/apple-maps-bug.png')
+        aside(role='note') we have dev techniques like testing to limit the chances of bugs, but the ultimate question
+
+      +slide('will-it-work')
+        h2.gothicfont Will it work on <span class='important'>production</span> ?
+        aside(role='note') and in the past our prod was fairly easily to to set up locally and test it.
+
+      +slide
+        img.schemash(src='images/monolith.jpg')
+        // https://unsplash.com/photos/XxzA5BMl-40
+        aside(role='note') productive developers. <br /> easy to reason. <br /> easy to navigate. <br /> but web was growing
+
+      +slide
+        img.schemash(src='images/twitter.jpg')
+        aside(role='note') as an industry we quickly learned this approach won't handle web scale easily. <br /> but also with growing teams development became harder
+
+      +slide
+        img.schemash(src='images/microservices.jpg')
+        // https://unsplash.com/photos/4_hFxTsmaO4
+        aside(role='note') solved a lot of problems of monolithic arch, but introduces another challenges. 
+     
+
+      +slide
+        ul.lists
+          li The network is <span class='important'>reliable</span>
+          li Latency is <span class='important'>zero</span>
+          li Bandwidth is <span class='important'>infinite</span>
+          li Transport cost is <span class='important'>zero</span>
+          div.footer
+            i.fa.fa-link &nbsp;&nbsp; 
+            a https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+        aside(role='note') we took a lot of things for granted from monolithic approach
+        
+
+      +slide
+        img.schemash(src='images/jim-carrey.gif')
+        aside(role='note') we want to be fast
+
+      +slide
+        ul.lists
+          li <pre>$ <span class='important'>mvn</span> clean install</pre>
+          li <pre>$ <span class='important'>./deploy.sh</span></pre>
+          aside(role='note') or from IDE
+        
+      +slide
+        img.schemash(src='images/compiling.jpg')  
+        aside(role='note') used to be the excuse, but with inc compl, jrebel etc
+
+      +slide
+        ul.lists
+          li <pre>$ <span class='important'>mvn </span>clean install</pre>
+          li <pre>$ <span class='important'>docker </span>build</pre>
+          li <pre>$ <span class='important'>docker </span>push</pre>
+          li <pre>$ <span class='important'>kubectl|oc</span> apply humongous.yaml</pre>
+
+      +slide
+        img.schemash(src='images/drink-coffee.jpg')
+        aside(role='note') more time for more coffee
+
+      +slide
+        img.schemash(src='images/build-fix-tools.png')
+
+      +slide('troubleshooting')
+        // https://unsplash.com/photos/5fNmWej4tAA
+        h2.gothicfont <span class='important'>Trouble</span>shooting
+        aside(role='note') logs. traces. print statements
+
+      +slide
+        div.main-wrap
+          h2(style='font-size:1.5em') solo.io Squash
+          div.leftbar
+            ul.lists  
+              li <span class='important'>Debug</span> running microservices
+              li from <span class='important'>VSCode</span> and <span class='important'>JetBrains</span> products
+          div.rightbar
+            img(src='images/squash.png', style="width:50%")
+        aside(role='note') Eclipse coming
+
+      +slide
+        img.schemash(src='images/squash-java.png', style="height:50%; background:#fff;")
+
+      +slide
+        img.schemash(src='images/squash-golang.png', style="height:50%; background:#fff;")
+    
+      +slide
+        img.schemash(src='images/container.jpg')
+        //https://unsplash.com/photos/RJjY5Hpnifk
+        aside(role='note') there came tools like minikube/shift <br />tempting to spin up the cluster locally with bunch of containers
+
+      +slide
+        img.schemash(src='images/moar-containers.jpg')
+        // https://unsplash.com/photos/fN603qcEA7g
+        aside(role='note') 100x 30mb of RAM 
+
+      +slide
+        img.schemash(src='images/laptop_fire_sm.jpg')
+        aside(role='note') easily reaches 82C on my machine
+
+      +slide
+        img.schemash(src='images/tp-diagram.png', style='background:#fff;')
+        aside(role='note') vpn. dns redirect
+
+      +slide('tools')
+        // https://unsplash.com/photos/VdOO4_HFTWM
+        ul.lists
+          li Build speed: Skaffold, Tilt, Gitkube, Garden, Draft
+          li Debugging: <span class='important'>Squash</span>
+          li Local developer experience: <span class='important'>Telepresence</span>
+     
+      +slide('white')
+        img.schemash(src='images/osio.png', style='background:#fff;height:30%;')
+        aside(role='note') we know building blocks. let me share you the real life story <br /> SaaS dev tooling <br /> from idea to prod <br />
+      
+      +slide
+        ul.lists
+          li Lots of moving pieces
+          li Blocked PRs
+          li Problematic staging cluster
+          li Desire for local developer experience
+      
+      // COPYRIGHTED PICTURE which I bought but can't redistribute
+      +slide('anger') 
+        aside(role='note') our productivity suffered. angry -- leaving
+
+      +slide('research')
+        // https://unsplash.com/photos/GnY_mW1Q6Xc
+        h2 <span class='important'>Goals</span>
+        br
+        h5 Easily validate your changes without interfering other services and users
+        br
+        h5 Interact with other services in the cluster
+        br
+        h5 Write software locally using your favorite tools
+
+      +slide
+        img.schemash(src='images/openshift-logo.png', style='background:#fff;')
+        aside(role='note') rh openshift - k8s distro with enterprise grade features
+
+      +slide
+        img.schemash(src='images/telepresence-stacked-color.png', style='background:#fff;')
+        aside(role='note') building blogs. targets given pod. we still need orchestration to create new versions of services
+
+      +slide
+        img.schemash(src='images/istio.png', style='background:#fff;')
+
+      +slide
+        img.schemash(src='images/istio.svg', style='background:#fff;')
+
+      +slide('istio-security') 
+        h1 <span class='important'>Security</span>
+      // https://unsplash.com/photos/Vj1ENH83l_A
+        
+      
+      +slide('istio-metrics')
+        h1 Metrics
+      // https://unsplash.com/photos/zPZ9vqqDNBA
+
+      +slide('istio-recovery')
+        h1 <span class='important'>Failure</span> Recovery
+        aside(role='note') timeouts and retries <br /> circuit breakers
+        // https://unsplash.com/photos/kK7uPfb2YWU
+      
+
+      +slide('istio-mirroring')
+        h1 Traffic <span class='important'>Mirroring</span>
+      // https://unsplash.com/photos/8SBRKnFmijE
+
+      +slide('istio-routing')
+        h1 Traffic <span class='important'>Splitting</span>
+        // https://unsplash.com/photos/7nrsVjvALnA      
+
+      +slide
+        a(href='https://www.youtube.com/watch?v=YQLOcjvbo9s', style='border:none')
+            i(style='font-size: .85em').fa.fa-youtube &nbsp;&nbsp; <span class='important'>Istio:</span> Canaries and Kubernetes, Microservices and Service Mesh | DevNation Live
+        a(href='https://www.youtube.com/watch?v=cB611FtjHcQ', style='border:none')
+            i(style='font-size: .85em').fa.fa-youtube &nbsp;&nbsp; Life of a packet through Istio by <span class='important'>Matt Turner</span> | Devoxx BE
+        a(href='https://github.com/redhat-developer-demos/istio-tutorial', style='border:none')
+            i(style='font-size: .85em').fa.fa-github &nbsp;&nbsp; <span class='important'>redhat-developer-demos</span>/istio-tutorial 
+        a(href='http://bit.ly/istio-book', style='border:none')
+            i(style='font-size: .85em').fa.fa-book &nbsp;&nbsp; <span class='important'>bit.ly</span>/istio-book
+
+      +slide('meet-ike')
+        h4 <pre class="no-scroll" style="font-size:2.1em; text-transform: lowercase">$ <span class='important'>ike</span> <span class="blinking-cursor">|</span></pre>
+
+      +slide('meet-ike')
+        h2.title What is it?
+        ul.lists
+          li k8s <span class='important'>operator</span> to coordinate cluster setup
+          li <span class='important'>cli</span> tool for local development
+
+      +slide('demo')
+        // https://unsplash.com/photos/WPTHZkA-M4I
+        h2.gothicfont.bigfont Demo
+
+      +slide        
+        div.demo-code  
+          <video width="100%" height="100%"><source src="demo/01_bookinfo.webm" type="video/webm"></video>
+          aside(role='note') explain the app
+
+      +slide        
+        div.demo-code  
+          <video width="100%" height="100%"><source src="demo/02_overview_cluster.webm" type="video/webm"></video>
+        aside(role='note') pods + kiali. next : so how can we start using IKE
+
+      +slide 
+        div.demo-code      
+          <asciinema-player src="demo/03_operator.cast" font-size="0.45em"></asciinema-player>
+        aside(role='note') namespace and operator deployed. next: commands of ike
+
+      +slide  
+        div.demo-code        
+          <asciinema-player src="demo/04_ike_develop.cast" font-size="0.45em"></asciinema-player>
+          // TODO IMPROVEMENT: missed showing the actual image being telepresence pod
+          aside(role='note') we skipped few details in the CLI, as they are in config file
+
+      +slide
+        h2.gothicfont.filegothic(style="font-size:0.6em") .ike.config.yaml
+        br
+        pre.small.language-javascript
+          code.bullet.bespoke-bullet.bespoke-bullet-active.bespoke-bullet-current
+            &nbsp;&nbsp;&nbsp;&nbsp;     
+            &nbsp;&nbsp;&nbsp;&nbsp;develop:
+            &nbsp;&nbsp;&nbsp;&nbsp;  run: "ruby details.rb 9080"&nbsp;&nbsp;&nbsp;&nbsp;  
+            &nbsp;&nbsp;&nbsp;&nbsp;  port: 9080
+            &nbsp;&nbsp;&nbsp;&nbsp;  namespace: devoxxpl-ike-demo&nbsp;&nbsp;&nbsp;&nbsp;  
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+      +slide        
+        div.demo-code
+          <video width="100%" height="100%"><source src="demo/05_kiali.webm" type="video/webm"></video>
+
+      +slide    
+        div.demo-code       
+          <asciinema-player src="demo/06_vim.cast" font-size="0.45em"></asciinema-player>
+
+      +slide        
+        div.demo-code  
+          <video width="100%" height="100%"><source src="demo/07_change.webm" type="video/webm"></video>
+
+      +slide        
+        div.demo-code   
+          <asciinema-player src="demo/08_cleanup.cast" font-size="0.45em"></asciinema-player>
+
+      +slide        
+        div.demo-code  
+          <video width="100%" height="100%"><source src="demo/09_cleanup.webm" type="video/webm"></video>
+      
+      +slide('meet-ike') 
+        h2.title Roadmap
+        ul.lists
+          li <span class='important'>IDE</span> integrations
+          li <span class='important'>CI/CD</span> use cases
+          li <span class='important'>Tell us</span> what else do you need!   
+    
+      +slide
+        div.main-wrap
+          h4.gothicfont(style='font-size:1.5em').fa.fa-github maistra/<span class='important'>istio-workspace</span>          
+          div.rightbar
+            img(src='images/maistra.png', style="width:100%")
+      
+      +slide('alone')
+        h2.title Are we alone?
+        // https://unsplash.com/photos/Yj1M5riCKk4
+        ul.lists
+          li <span class='important'>Namely</span>
+          li <span class='important'>Azure</span> Dev Spaces
+          li Google <span class='important'>Cloud Code</span>
+        aside(role='note') key differentiator - we are doing it entirely opensource and for every k8s cluster out there
+      
+      +slide('recap')
+        // https://unsplash.com/photos/1K9T5YiZ2WU
+        h2.gothicfont.smallgothic <br/> So what about <span class='important'>prod</span>?
+
+      +slide('prod')
+        h2.title <span class='important'>Staging</span> environment
+        ul.lists
+          li Challenging to keep in-sync with prod
+          li Extra costs
+          li Uncertainty
+          li With k8s and Istio risk of side effects can be mitigated
+        aside(role='note') obviously there are challenges i.e. stateful/db <br /> no one-size-fits-all solution <br /> Teiid - read from actual db, writes to virtual table
+
+      +slide
+        div.main-wrap
+          h4(style='font-size:2.5em') Thank you!
+          div.leftbar
+            h2.gothicfont(style='font-size:1.5em') Bartosz Majsak
+            br
+            h2.gothicfont.important(style='font-size:1em') Red Hat
+            h2.gothicfont(style='font-size:1em') Software Engineer
+          div.rightbar
+            img(src='images/nespresso.jpg', style="width:50%")
+        div.footer
+          i.fa.fa-twitter &nbsp;majson&nbsp;
+          i.fa.fa-github &nbsp;bartoszmajsak
+
+      +slide
+        h4 Unsplash photos in order of appearance
+
+        a.small(href='https://unsplash.com/photos/0MC0o-xLucM') https://unsplash.com/photos/0MC0o-xLucM
+        a.small(href='https://unsplash.com/photos/XxzA5BMl-40') https://unsplash.com/photos/XxzA5BMl-40
+        a.small(href='https://unsplash.com/photos/4_hFxTsmaO4') https://unsplash.com/photos/4_hFxTsmaO4
+        a.small(href='https://unsplash.com/photos/5fNmWej4tAA') https://unsplash.com/photos/5fNmWej4tAA
+        a.small(href='https://unsplash.com/photos/RJjY5Hpnifk') https://unsplash.com/photos/RJjY5Hpnifk
+        a.small(href='https://unsplash.com/photos/fN603qcEA7g') https://unsplash.com/photos/fN603qcEA7g
+        a.small(href='https://unsplash.com/photos/VdOO4_HFTWM') https://unsplash.com/photos/VdOO4_HFTWM
+        a.small(href='https://unsplash.com/photos/GnY_mW1Q6Xc') https://unsplash.com/photos/GnY_mW1Q6Xc
+        a.small(href='https://unsplash.com/photos/Vj1ENH83l_A') https://unsplash.com/photos/Vj1ENH83l_A
+        a.small(href='https://unsplash.com/photos/zPZ9vqqDNBA') https://unsplash.com/photos/zPZ9vqqDNBA
+        a.small(href='https://unsplash.com/photos/kK7uPfb2YWU') https://unsplash.com/photos/kK7uPfb2YWU
+        a.small(href='https://unsplash.com/photos/8SBRKnFmijE') https://unsplash.com/photos/8SBRKnFmijE
+        a.small(href='https://unsplash.com/photos/WPTHZkA-M4I') https://unsplash.com/photos/WPTHZkA-M4I
+        a.small(href='https://unsplash.com/photos/Yj1M5riCKk4') https://unsplash.com/photos/Yj1M5riCKk4
+        a.small(href='https://unsplash.com/photos/1K9T5YiZ2WU') https://unsplash.com/photos/1K9T5YiZ2WU
+
+    script(src='build/build.js')
+    script(src='build/asciinema-player.js')
+

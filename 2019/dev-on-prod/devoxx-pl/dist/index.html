@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Let's develop on Prod! Wait! Whaaaat?!</title>
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <link rel="stylesheet" type="text/css" href="build/asciinema-player.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <body>
+    <article>
+      <section data-bespoke-backdrop="backdrop backdrop--devoxx" class="devoxx undefined">
+        <h2 class="black">Let's develop on Prod! </h2>
+        <h2 class="black">Wait! <span class='important'>Whaaaat?!</span></h2>
+        <h4 class="black">Bartosz Majsak</h4>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--title" class="title undefined">
+        <!-- https://unsplash.com/photos/0MC0o-xLucM-->
+        <h2 class="title">Let's develop on Prod! Wait! <span class='important'>Whaaaat?!</span></h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--dijkstra" class="dijkstra undefined">
+        <h4>If <span class='important'>debugging</span> is the process of<br/> <span class='important'>removing software bugs</span>, <br/>then <span class='important'>programming</span> must be the process of <br/><span class='important'>putting them in</span>.</h4>
+        <h3>Edsger W. Dijkstra</h3>
+        <aside role="note">Let's start with motivational quote. J/k I'm not a coach. And it's actually a  bit demotivating.</aside>
+      </section>
+      <section><img src="images/fifa.gif" class="schemash">
+      </section>
+      <section><img src="images/apple-maps-bug.png" class="schemash">
+        <aside role="note">we have dev techniques like testing to limit the chances of bugs, but the ultimate question</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--will-it-work" class="will-it-work undefined">
+        <h2 class="gothicfont">Will it work on <span class='important'>production</span> ?</h2>
+        <aside role="note">and in the past our prod was fairly easily to to set up locally and test it.</aside>
+      </section>
+      <section><img src="images/monolith.jpg" class="schemash">
+        <!-- https://unsplash.com/photos/XxzA5BMl-40-->
+        <aside role="note">productive developers. <br /> easy to reason. <br /> easy to navigate. <br /> but web was growing</aside>
+      </section>
+      <section><img src="images/twitter.jpg" class="schemash">
+        <aside role="note">as an industry we quickly learned this approach won't handle web scale easily. <br /> but also with growing teams development became harder</aside>
+      </section>
+      <section><img src="images/microservices.jpg" class="schemash">
+        <!-- https://unsplash.com/photos/4_hFxTsmaO4-->
+        <aside role="note">solved a lot of problems of monolithic arch, but introduces another challenges. </aside>
+      </section>
+      <section>
+        <ul class="lists">
+          <li>The network is <span class='important'>reliable</span></li>
+          <li>Latency is <span class='important'>zero</span></li>
+          <li>Bandwidth is <span class='important'>infinite</span></li>
+          <li>Transport cost is <span class='important'>zero</span></li>
+          <div class="footer"><i class="fa fa-link">&nbsp;&nbsp; </i><a>https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing</a></div>
+        </ul>
+        <aside role="note">we took a lot of things for granted from monolithic approach</aside>
+      </section>
+      <section><img src="images/jim-carrey.gif" class="schemash">
+        <aside role="note">we want to be fast</aside>
+      </section>
+      <section>
+        <ul class="lists">
+          <li><pre>$ <span class='important'>mvn</span> clean install</pre></li>
+          <li><pre>$ <span class='important'>./deploy.sh</span></pre></li>
+          <aside role="note">or from IDE</aside>
+        </ul>
+      </section>
+      <section><img src="images/compiling.jpg" class="schemash">
+        <aside role="note">used to be the excuse, but with inc compl, jrebel etc</aside>
+      </section>
+      <section>
+        <ul class="lists">
+          <li><pre>$ <span class='important'>mvn </span>clean install</pre></li>
+          <li><pre>$ <span class='important'>docker </span>build</pre></li>
+          <li><pre>$ <span class='important'>docker </span>push</pre></li>
+          <li><pre>$ <span class='important'>kubectl|oc</span> apply humongous.yaml</pre></li>
+        </ul>
+      </section>
+      <section><img src="images/drink-coffee.jpg" class="schemash">
+        <aside role="note">more time for more coffee</aside>
+      </section>
+      <section><img src="images/build-fix-tools.png" class="schemash">
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--troubleshooting" class="troubleshooting undefined">
+        <!-- https://unsplash.com/photos/5fNmWej4tAA-->
+        <h2 class="gothicfont"><span class='important'>Trouble</span>shooting</h2>
+        <aside role="note">logs. traces. print statements</aside>
+      </section>
+      <section>
+        <div class="main-wrap">
+          <h2 style="font-size:1.5em">solo.io Squash</h2>
+          <div class="leftbar">
+            <ul class="lists"> 
+              <li><span class='important'>Debug</span> running microservices</li>
+              <li>from <span class='important'>VSCode</span> and <span class='important'>JetBrains</span> products</li>
+            </ul>
+          </div>
+          <div class="rightbar"><img src="images/squash.png" style="width:50%"></div>
+        </div>
+        <aside role="note">Eclipse coming</aside>
+      </section>
+      <section><img src="images/squash-java.png" style="height:50%; background:#fff;" class="schemash">
+      </section>
+      <section><img src="images/squash-golang.png" style="height:50%; background:#fff;" class="schemash">
+      </section>
+      <section><img src="images/container.jpg" class="schemash">
+        <!--https://unsplash.com/photos/RJjY5Hpnifk-->
+        <aside role="note">there came tools like minikube/shift <br />tempting to spin up the cluster locally with bunch of containers</aside>
+      </section>
+      <section><img src="images/moar-containers.jpg" class="schemash">
+        <!-- https://unsplash.com/photos/fN603qcEA7g-->
+        <aside role="note">100x 30mb of RAM </aside>
+      </section>
+      <section><img src="images/laptop_fire_sm.jpg" class="schemash">
+        <aside role="note">easily reaches 82C on my machine</aside>
+      </section>
+      <section><img src="images/tp-diagram.png" style="background:#fff;" class="schemash">
+        <aside role="note">vpn. dns redirect</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--tools" class="tools undefined">
+        <!-- https://unsplash.com/photos/VdOO4_HFTWM-->
+        <ul class="lists">
+          <li>Build speed: Skaffold, Tilt, Gitkube, Garden, Draft</li>
+          <li>Debugging: <span class='important'>Squash</span></li>
+          <li>Local developer experience: <span class='important'>Telepresence</span></li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--white" class="white undefined"><img src="images/osio.png" style="background:#fff;height:30%;" class="schemash">
+        <aside role="note">we know building blocks. let me share you the real life story <br /> SaaS dev tooling <br /> from idea to prod <br /></aside>
+      </section>
+      <section>
+        <ul class="lists">
+          <li>Lots of moving pieces</li>
+          <li>Blocked PRs</li>
+          <li>Problematic staging cluster</li>
+          <li>Desire for local developer experience</li>
+        </ul>
+      </section>
+      <!-- COPYRIGHTED PICTURE which I bought but can't redistribute-->
+      <section data-bespoke-backdrop="backdrop backdrop--anger" class="anger undefined">
+        <aside role="note">our productivity suffered. angry -- leaving</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--research" class="research undefined">
+        <!-- https://unsplash.com/photos/GnY_mW1Q6Xc-->
+        <h2><span class='important'>Goals</span></h2><br>
+        <h5>Easily validate your changes without interfering other services and users</h5><br>
+        <h5>Interact with other services in the cluster</h5><br>
+        <h5>Write software locally using your favorite tools</h5>
+      </section>
+      <section><img src="images/openshift-logo.png" style="background:#fff;" class="schemash">
+        <aside role="note">rh openshift - k8s distro with enterprise grade features</aside>
+      </section>
+      <section><img src="images/telepresence-stacked-color.png" style="background:#fff;" class="schemash">
+        <aside role="note">building blogs. targets given pod. we still need orchestration to create new versions of services</aside>
+      </section>
+      <section><img src="images/istio.png" style="background:#fff;" class="schemash">
+      </section>
+      <section><img src="images/istio.svg" style="background:#fff;" class="schemash">
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--istio-security" class="istio-security undefined">
+        <h1><span class='important'>Security</span></h1>
+      </section>
+      <!-- https://unsplash.com/photos/Vj1ENH83l_A-->
+      <section data-bespoke-backdrop="backdrop backdrop--istio-metrics" class="istio-metrics undefined">
+        <h1>Metrics</h1>
+      </section>
+      <!-- https://unsplash.com/photos/zPZ9vqqDNBA-->
+      <section data-bespoke-backdrop="backdrop backdrop--istio-recovery" class="istio-recovery undefined">
+        <h1><span class='important'>Failure</span> Recovery</h1>
+        <aside role="note">timeouts and retries <br /> circuit breakers</aside>
+        <!-- https://unsplash.com/photos/kK7uPfb2YWU-->
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--istio-mirroring" class="istio-mirroring undefined">
+        <h1>Traffic <span class='important'>Mirroring</span></h1>
+      </section>
+      <!-- https://unsplash.com/photos/8SBRKnFmijE-->
+      <section data-bespoke-backdrop="backdrop backdrop--istio-routing" class="istio-routing undefined">
+        <h1>Traffic <span class='important'>Splitting</span></h1>
+        <!-- https://unsplash.com/photos/7nrsVjvALnA      -->
+      </section>
+      <section><a href="https://www.youtube.com/watch?v=YQLOcjvbo9s" style="border:none"><i style="font-size: .85em" class="fa fa-youtube">&nbsp;&nbsp; <span class='important'>Istio:</span> Canaries and Kubernetes, Microservices and Service Mesh | DevNation Live</i></a><a href="https://www.youtube.com/watch?v=cB611FtjHcQ" style="border:none"><i style="font-size: .85em" class="fa fa-youtube">&nbsp;&nbsp; Life of a packet through Istio by <span class='important'>Matt Turner</span> | Devoxx BE</i></a><a href="https://github.com/redhat-developer-demos/istio-tutorial" style="border:none"><i style="font-size: .85em" class="fa fa-github">&nbsp;&nbsp; <span class='important'>redhat-developer-demos</span>/istio-tutorial </i></a><a href="http://bit.ly/istio-book" style="border:none"><i style="font-size: .85em" class="fa fa-book">&nbsp;&nbsp; <span class='important'>bit.ly</span>/istio-book</i></a>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <h4><pre class="no-scroll" style="font-size:2.1em; text-transform: lowercase">$ <span class='important'>ike</span> <span class="blinking-cursor">|</span></pre></h4>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <h2 class="title">What is it?</h2>
+        <ul class="lists">
+          <li>k8s <span class='important'>operator</span> to coordinate cluster setup</li>
+          <li><span class='important'>cli</span> tool for local development</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--demo" class="demo undefined">
+        <!-- https://unsplash.com/photos/WPTHZkA-M4I-->
+        <h2 class="gothicfont bigfont">Demo</h2>
+      </section>
+      <section>       
+        <div class="demo-code">
+           
+          <video width="100%" height="100%"><source src="demo/01_bookinfo.webm" type="video/webm"></video>
+          <aside role="note">explain the app</aside>
+        </div>
+      </section>
+      <section>       
+        <div class="demo-code">
+           
+          <video width="100%" height="100%"><source src="demo/02_overview_cluster.webm" type="video/webm"></video>
+        </div>
+        <aside role="note">pods + kiali. next : so how can we start using IKE</aside>
+      </section>
+      <section>
+        <div class="demo-code">
+               
+          <asciinema-player src="demo/03_operator.cast" font-size="0.45em"></asciinema-player>
+        </div>
+        <aside role="note">namespace and operator deployed. next: commands of ike</aside>
+      </section>
+      <section> 
+        <div class="demo-code">
+                 
+          <asciinema-player src="demo/04_ike_develop.cast" font-size="0.45em"></asciinema-player>
+          <!-- TODO IMPROVEMENT: missed showing the actual image being telepresence pod-->
+          <aside role="note">we skipped few details in the CLI, as they are in config file</aside>
+        </div>
+      </section>
+      <section>
+        <h2 style="font-size:0.6em" class="gothicfont filegothic">.ike.config.yaml</h2><br>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">&nbsp;&nbsp;&nbsp;&nbsp;     
+&nbsp;&nbsp;&nbsp;&nbsp;develop:
+&nbsp;&nbsp;&nbsp;&nbsp;  run: "ruby details.rb 9080"&nbsp;&nbsp;&nbsp;&nbsp;  
+&nbsp;&nbsp;&nbsp;&nbsp;  port: 9080
+&nbsp;&nbsp;&nbsp;&nbsp;  namespace: devoxxpl-ike-demo&nbsp;&nbsp;&nbsp;&nbsp;  
+&nbsp;&nbsp;&nbsp;&nbsp;</code></pre>
+      </section>
+      <section>       
+        <div class="demo-code"><video width="100%" height="100%"><source src="demo/05_kiali.webm" type="video/webm"></video></div>
+      </section>
+      <section>   
+        <div class="demo-code">
+                
+          <asciinema-player src="demo/06_vim.cast" font-size="0.45em"></asciinema-player>
+        </div>
+      </section>
+      <section>       
+        <div class="demo-code">
+           
+          <video width="100%" height="100%"><source src="demo/07_change.webm" type="video/webm"></video>
+        </div>
+      </section>
+      <section>       
+        <div class="demo-code">
+            
+          <asciinema-player src="demo/08_cleanup.cast" font-size="0.45em"></asciinema-player>
+        </div>
+      </section>
+      <section>       
+        <div class="demo-code">
+           
+          <video width="100%" height="100%"><source src="demo/09_cleanup.webm" type="video/webm"></video>
+        </div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <h2 class="title">Roadmap</h2>
+        <ul class="lists">
+          <li><span class='important'>IDE</span> integrations</li>
+          <li><span class='important'>CI/CD</span> use cases</li>
+          <li><span class='important'>Tell us</span> what else do you need!   </li>
+        </ul>
+      </section>
+      <section>
+        <div class="main-wrap">
+          <h4 style="font-size:1.5em" class="gothicfont fa fa-github">maistra/<span class='important'>istio-workspace</span>          </h4>
+          <div class="rightbar"><img src="images/maistra.png" style="width:100%"></div>
+        </div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--alone" class="alone undefined">
+        <h2 class="title">Are we alone?</h2>
+        <!-- https://unsplash.com/photos/Yj1M5riCKk4-->
+        <ul class="lists">
+          <li><span class='important'>Namely</span></li>
+          <li><span class='important'>Azure</span> Dev Spaces</li>
+          <li>Google <span class='important'>Cloud Code</span></li>
+        </ul>
+        <aside role="note">key differentiator - we are doing it entirely opensource and for every k8s cluster out there</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--recap" class="recap undefined">
+        <!-- https://unsplash.com/photos/1K9T5YiZ2WU-->
+        <h2 class="gothicfont smallgothic"><br/> So what about <span class='important'>prod</span>?</h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--prod" class="prod undefined">
+        <h2 class="title"><span class='important'>Staging</span> environment</h2>
+        <ul class="lists">
+          <li>Challenging to keep in-sync with prod</li>
+          <li>Extra costs</li>
+          <li>Uncertainty</li>
+          <li>With k8s and Istio risk of side effects can be mitigated</li>
+        </ul>
+        <aside role="note">obviously there are challenges i.e. stateful/db <br /> no one-size-fits-all solution <br /> Teiid - read from actual db, writes to virtual table</aside>
+      </section>
+      <section>
+        <div class="main-wrap">
+          <h4 style="font-size:2.5em">Thank you!</h4>
+          <div class="leftbar">
+            <h2 style="font-size:1.5em" class="gothicfont">Bartosz Majsak</h2><br>
+            <h2 style="font-size:1em" class="gothicfont important">Red Hat</h2>
+            <h2 style="font-size:1em" class="gothicfont">Software Engineer</h2>
+          </div>
+          <div class="rightbar"><img src="images/nespresso.jpg" style="width:50%"></div>
+        </div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;majson&nbsp;</i><i class="fa fa-github">&nbsp;bartoszmajsak</i></div>
+      </section>
+      <section>
+        <h4>Unsplash photos in order of appearance</h4><a href="https://unsplash.com/photos/0MC0o-xLucM" class="small">https://unsplash.com/photos/0MC0o-xLucM</a><a href="https://unsplash.com/photos/XxzA5BMl-40" class="small">https://unsplash.com/photos/XxzA5BMl-40</a><a href="https://unsplash.com/photos/4_hFxTsmaO4" class="small">https://unsplash.com/photos/4_hFxTsmaO4</a><a href="https://unsplash.com/photos/5fNmWej4tAA" class="small">https://unsplash.com/photos/5fNmWej4tAA</a><a href="https://unsplash.com/photos/RJjY5Hpnifk" class="small">https://unsplash.com/photos/RJjY5Hpnifk</a><a href="https://unsplash.com/photos/fN603qcEA7g" class="small">https://unsplash.com/photos/fN603qcEA7g</a><a href="https://unsplash.com/photos/VdOO4_HFTWM" class="small">https://unsplash.com/photos/VdOO4_HFTWM</a><a href="https://unsplash.com/photos/GnY_mW1Q6Xc" class="small">https://unsplash.com/photos/GnY_mW1Q6Xc</a><a href="https://unsplash.com/photos/Vj1ENH83l_A" class="small">https://unsplash.com/photos/Vj1ENH83l_A</a><a href="https://unsplash.com/photos/zPZ9vqqDNBA" class="small">https://unsplash.com/photos/zPZ9vqqDNBA</a><a href="https://unsplash.com/photos/kK7uPfb2YWU" class="small">https://unsplash.com/photos/kK7uPfb2YWU</a><a href="https://unsplash.com/photos/8SBRKnFmijE" class="small">https://unsplash.com/photos/8SBRKnFmijE</a><a href="https://unsplash.com/photos/WPTHZkA-M4I" class="small">https://unsplash.com/photos/WPTHZkA-M4I</a><a href="https://unsplash.com/photos/Yj1M5riCKk4" class="small">https://unsplash.com/photos/Yj1M5riCKk4</a><a href="https://unsplash.com/photos/1K9T5YiZ2WU" class="small">https://unsplash.com/photos/1K9T5YiZ2WU</a>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+    <script src="build/asciinema-player.js"></script>
+  </body>
+</html>

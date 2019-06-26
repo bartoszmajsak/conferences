@@ -1,0 +1,53 @@
+= Let’s develop on Prod! Wait! What?!
+
+== Abstract
+
+Do you have confidence that your Test and Stage environments reflect reality? Are they easy to keep up-to-date with production? Can you reproduce production failure in these environments or locally? What about that error you keep seeing on production that’s never occurring on Test or Stage?
+
+It's been always hard to test new functionality before it reaches production. Even more so, with the shift from a monolith to microservices and increasing scale. Can you still spin up the entire solution on your laptop to debug and test a suspicious piece of code? Testing on production is no longer a meme. It’s reality and a necessity.
+
+Let's talk about how we can leverage Istio and Kubernetes or Openshift to be confident that changes won't blow up your production cluster and your users won’t even notice a glitch.
+
+Join this session to learn how to safely develop and test your services in a real production environment. Leave with tools and techniques you can apply right away and with confidence!
+
+
+== Concept
+
+. I start with looking at how "cloud native" and new infrastructures such as containers and k8s together with microservices, while simplifying operation side of things, bring new challenges for developer's day-to-day work in contrast to good, old monoliths ;) 
+. Next, I dive to tools which are trying to address this problem space, starting from debugging (https://github.com/solo-io/squash[solo.io squash]), shorter inner-loop cycles (https://github.com/GoogleContainerTools/skaffold[Skaffold] from Google et al) to running your service locally but interacting with the whole cluster through normal flow (https://www.telepresence.io/[telepresence.io]) 
+. The main part of the presentation (and demo) is the tool we are working on - https://github.com/Maistra/istio-workspace[istio-workspace], which leverages some of the solutions mentioned above, but combining it with service mesh let you develop on a live cluster without affecting regular user base (one can think of it as A/B testing but with live development) 
+
+== How to view
+
+- Clone and open `dist/index.html`
+- Download PDF (no animations)
+- Build from source (see below)
+
+=== Building from source
+
+This is a http://markdalgleish.com/projects/bespoke.js[Bespoke.js] presentation, built with https://github.com/markdalgleish/generator-bespoke[generator-bespoke].
+
+IMPORTANT: Make sure you have https://github.com/opendevise/bespoke-onstage[bespoke-onstage] installed before you generate the site.
+
+==== View slides locally
+
+First, ensure you have the following installed:
+
+1. http://nodejs.org[Node.js]
+2. http://bower.io[Bower]: `$ npm install -g bower`
+3. http://gulpjs.com[Gulp]: `$ npm install -g gulp`
+
+Then, install dependencies and run the preview server:
+
+[source,bash]
+----
+$ npm install && bower install
+$ gulp serve
+----
+
+== Resources about Istio mentioned during the talk
+
+- https://www.youtube.com/watch?v=YQLOcjvbo9s[Istio: Canaries and Kubernetes, Microservices and Service Mesh | DevNation Live]
+- https://www.youtube.com/watch?v=cB611FtjHcQ[Life of a packet through Istio by Matt Turner | Devoxx BE]
+- https://github.com/redhat-developer-demos/istio-tutorial[redhat-developer-demos/istio-tutorial]
+- Free Red Hat Developers book about Istio published by O'Reilly https://bit.ly/istio-book
