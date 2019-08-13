@@ -27,7 +27,7 @@ Join this session to learn how to safely develop and test your services in a rea
 
 This is a http://markdalgleish.com/projects/bespoke.js[Bespoke.js] presentation, built with https://github.com/markdalgleish/generator-bespoke[generator-bespoke].
 
-IMPORTANT: Make sure you have https://github.com/opendevise/bespoke-onstage[bespoke-onstage] installed before you generate the site.
+IMPORTANT: Make sure you have https://github.com/opendevise/bespoke-onstage[bespoke-onstage] installed before you generate the site. You can simply copy it to your `node_modules` folder (as it's not available through `npm` repository).
 
 ==== View slides locally
 
