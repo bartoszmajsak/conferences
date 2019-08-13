@@ -13,7 +13,7 @@ var pkg = require('./package.json'),
   autoprefixer = require('gulp-autoprefixer'),
   csso = require('gulp-csso'),
   through = require('through'),
-  opn = require('opn'),
+  open = require('open'),
   ghpages = require('gh-pages'),
   path = require('path'),
   pdf = require('bespoke-pdf'),
@@ -119,7 +119,7 @@ gulp.task('connect', ['build'], function(done) {
     livereload: true
   });
 
-  opn('http://localhost:' + port, done);
+  open('http://localhost:' + port, done);
 });
 
 gulp.task('watch', function() {
@@ -146,6 +146,12 @@ gulp.task('pdf', ['connect'], function () {
 gulp.task('clean:pdf', function() {
   return gulp.src('dist/' + pkg.name + '.pdf')
     .pipe(rimraf());
+});
+
+gulp.task('present', ['build'], function(done) {
+  let onstage = path.join(__dirname, 'onstage.html')
+  let index = path.join(__dirname, 'dist', 'index.html')
+  open('file://' + onstage + '#' + index, done);
 });
 
 gulp.task('build', ['js', 'html', 'css', 'fonts', 'images', 'demo']);
