@@ -1,0 +1,174 @@
+== https://www.youtube.com/watch?v=75soljoqhjY[Fast Kubernetes development with Telepresence.io by Cesar Tron-Lozai]
+
+=== Use case
+
+Microservices cloud -> k8s -> docker / containers
+
+> conclusion - I can't run the whole stuff on my laptop
+-> points to dev cluster
+
+(idea for my talk -> compare with old school monolith)
+showing the dev cycle
+- compile: 30s
+- docker build
+- docker push
+- bounce pod
+- restart
+
+
+
+
+== https://www.youtube.com/watch?v=TYXHuOqK3PQ[Squash and Loop microservice debugging tutorial]
+
+
+
+
+> Talk
+
+> Questions - at any time
+
+> openshift.io story
+
+
+- wrong tooling and techniques -> slow down productivity, people will get frustrated
+
+- anyone starting up their clusters locally?
+(screenshot of my system perf + https://www.contegix.com/wp-content/uploads/2018/01/laptop_fire_sm.jpg)
+- can you really spawn all the services at once?
+
+- potentially running against outdated services (unit tests, contract tests can potentially help here)
+
+>>> real use case - launcher?
+
+> principles
+
+- write software locally using your favorite tools
+
+- interact with other services running in the cluster
+
+- no interference with other services / users
+
+## Tackle some myths
+https://linuxtogether.org/why-should-we-have-separate-development-testing-and-production-environments/
+
+
+When jumping to microservices world we apply the same assumptions and expectations
+
+Fallacies of distributed computing
+
+- network and infra is reliable
+- latency is zero
+- bandwith is infinite
+- the network is secure
+- topology does not change
+- transport cost is zero
+- the network is homogeneous
+
+> it gets harder to develop on such a platform
+
+
+
+## Service Mesh in a few pictures
+
+before istio (discovery, load balancer, resiliency, metrics, tracing)
+
+after istio:
+
+sidecar takes over all non-business logic
+
+> circuit breaker
+> redirecting traffic
+> mirroring traffic
+
+
+## How Istio-workspace work
+
+edge vs non-edge services
+
+## Future
+
+- subdomains
+- other connectivity strategies
+  - squash
+- CI 
+- IDE plugins
+
+
+## Hard questions
+
+- what if you have a state 
+--- virtual db / teiid - reads from prod / write to throwaway clone
+
+- who is using such approach
+-- Namely (human resources company). we were actually inspired by the talk by one of their employees
+
+
+
+
+
+
+== My talk
+
+. why dev cluster is bad idea
+.. money
+.. maintainance overhead
+.. never the same a prod
+
+
+=== Demo
+
+Quarkus
+- regular
+- debug
+
+=== Questions to be prepared for
+
+. Why not just connecting to actual pod?
+. Security constraints
+
+
+// Source talks:
+// Telepresence:
+// https://www.youtube.com/watch?v=jAjxt-OMeLI
+// https://www.youtube.com/watch?v=k9lh4ZuKsiQ
+// https://www.youtube.com/watch?v=8Dl8U-AbJN0
+// 15 min Devoxx talk https://www.youtube.com/watch?v=75soljoqhjY
+
+
+// Squash
+// https://www.youtube.com/watch?v=5TrV3qzXlgI
+// https://www.youtube.com/watch?v=TYXHuOqK3PQ
+
+// PICTURES
+// bubbles: https://unsplash.com/photos/4_hFxTsmaO4
+// Containers
+//  https://unsplash.com/photos/tjX_sniNzgQ
+//  https://unsplash.com/photos/uBe2mknURG4
+//  https://unsplash.com/photos/RJjY5Hpnifk
+//  
+//
+// Myths
+//  https://unsplash.com/photos/yri82tuk2TQ
+//  
+//
+// Burning money
+//  https://unsplash.com/photos/mQTTDA_kY_8
+// 
+// Istio
+//  Circuit breakers
+//      https://unsplash.com/search/photos/fuse-box
+//      https://unsplash.com/photos/kK7uPfb2YWU
+//      https://unsplash.com/photos/FDlBbfyViR0
+//  Traffic mirroring
+//      https://unsplash.com/photos/8SBRKnFmijE
+//  Traffic redirect
+//      https://unsplash.com/photos/7nrsVjvALnA
+//      https://unsplash.com/photos/XS7q-baZrmE
+//  Security
+//      https://unsplash.com/search/photos/padlock
+//  Metrics
+//      https://unsplash.com/photos/zPZ9vqqDNBA 
+//
+//
+// Are we alone in this quest? 
+// https://unsplash.com/search/photos/alone

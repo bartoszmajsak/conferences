@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Let's develop on Prod! Wait! Whaaaat?!</title>
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <link rel="stylesheet" type="text/css" href="build/asciinema-player.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <body>
+    <article>
+      <section data-bespoke-backdrop="backdrop backdrop--title" class="title undefined">
+        <!-- https://unsplash.com/photos/0MC0o-xLucM-->
+        <h2 class="title">Let's develop on Prod! Wait! <span class='important'>Whaaaat?!</span></h2>
+      </section>
+      <section><img src="images/monolith.jpg" class="schemash">
+        <!-- https://unsplash.com/photos/XxzA5BMl-40-->
+        <aside role="note">productive developers. <br /> easy to reason. <br /> easy to navigate. <br /> but web was growing</aside>
+      </section>
+      <section><img src="images/twitter.jpg" class="schemash">
+        <aside role="note">as an industry we quickly learned this approach won't handle web scale easily. <br /> but also with growing teams development became harder</aside>
+      </section>
+      <section><img src="images/microservices.jpg" class="schemash">
+        <!-- https://unsplash.com/photos/4_hFxTsmaO4-->
+        <aside role="note">solved a lot of problems of monolithic arch, but introduces another challenges. </aside>
+      </section>
+      <section><img src="images/container.jpg" class="schemash">
+        <!--https://unsplash.com/photos/RJjY5Hpnifk-->
+        <aside role="note">there came tools like minikube/shift <br />tempting to spin up the cluster locally with bunch of containers</aside>
+      </section>
+      <section><img src="images/moar-containers.jpg" class="schemash">
+        <!-- https://unsplash.com/photos/fN603qcEA7g-->
+        <aside role="note">100x 30mb of RAM </aside>
+      </section>
+      <section><img src="images/laptop_fire_sm.jpg" class="schemash">
+        <aside role="note">easily reaches 82C on my machine</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--will-it-work" class="will-it-work undefined">
+        <h2 class="gothicfont">Will it work on <span class='important'>production</span> ?</h2>
+        <aside role="note">and in the past our prod was fairly easily to to set up locally and test it.</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--prod" class="prod undefined">
+        <h2 class="title"><span class='important'>Staging</span> environment</h2>
+        <ul class="lists">
+          <li>Challenging to keep in-sync with prod</li>
+          <li>Extra costs</li>
+          <li>Uncertainty</li>
+        </ul>
+        <aside role="note">With k8s and Istio risk of side effects can be mitigated. obviously there are challenges i.e. stateful/db <br /> no one-size-fits-all solution <br /> Teiid - read from actual db, writes to virtual table</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--anger" class="anger undefined">
+        <aside role="note">our productivity suffered. angry -- leaving</aside>
+      </section>
+      <section><img src="images/jim-carrey.gif" class="schemash">
+        <aside role="note">we want to be fast</aside>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <h4><pre class="no-scroll" style="font-size:2.1em; text-transform: lowercase">$ <span class='important'>ike</span> <span class="blinking-cursor">|</span></pre></h4>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <h2 class="title">What is it?</h2>
+        <ul class="lists">
+          <li>k8s <span class='important'>operator</span> to coordinate cluster setup</li>
+          <li><span class='important'>cli</span> tool for local development</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <!-- https://unsplash.com/photos/GnY_mW1Q6Xc-->
+        <h2><span class='important'>Goals</span></h2><br>
+        <h5>Easily validate your changes without interfering other services and users</h5><br>
+        <h5>Interact with other services in the cluster</h5><br>
+        <h5>Write software locally using your favorite tools</h5>
+      </section>
+      <section><img src="images/openshift-logo.png" style="background:#fff;" class="schemash">
+        <aside role="note">rh openshift - k8s distro with enterprise grade features</aside>
+      </section>
+      <section><img src="images/istio.png" style="background:#fff;" class="schemash">
+      </section>
+      <section><img src="images/telepresence-stacked-color.png" style="background:#fff;" class="schemash">
+        <aside role="note">building blogs. targets given pod. we still need orchestration to create new versions of services</aside>
+      </section>
+      <!-- DEMO-->
+      <section data-bespoke-backdrop="backdrop backdrop--demo" class="demo undefined">
+        <!-- https://unsplash.com/photos/WPTHZkA-M4I-->
+        <h2 class="gothicfont bigfont">Demo</h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--meet-ike" class="meet-ike undefined">
+        <h2 class="title">Roadmap</h2>
+        <ul class="lists">
+          <li><span class='important'>IDE</span> integrations</li>
+          <li><span class='important'>CI/CD</span> use cases</li>
+          <li><span class='important'>Tell us</span> what else do you need!   </li>
+        </ul>
+      </section>
+      <section>
+        <div class="main-wrap">
+          <h4 style="font-size:1.5em" class="gothicfont fa fa-github">maistra/<span class='important'>istio-workspace</span>          </h4>
+          <div class="rightbar"><img src="images/maistra.png" style="width:100%"></div>
+        </div>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+    <script src="build/asciinema-player.js"></script>
+  </body>
+</html>

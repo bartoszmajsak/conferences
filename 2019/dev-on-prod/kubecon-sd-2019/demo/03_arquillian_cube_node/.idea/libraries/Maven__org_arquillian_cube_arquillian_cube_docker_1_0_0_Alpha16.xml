@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.arquillian.cube:arquillian-cube-docker:1.0.0.Alpha16">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/arquillian/cube/arquillian-cube-docker/1.0.0.Alpha16/arquillian-cube-docker-1.0.0.Alpha16.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/arquillian/cube/arquillian-cube-docker/1.0.0.Alpha16/arquillian-cube-docker-1.0.0.Alpha16-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/arquillian/cube/arquillian-cube-docker/1.0.0.Alpha16/arquillian-cube-docker-1.0.0.Alpha16-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

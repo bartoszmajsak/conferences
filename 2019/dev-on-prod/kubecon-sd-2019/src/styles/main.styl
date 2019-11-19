@@ -1,0 +1,454 @@
+@import 'prism/themes/prism-okaidia.css'
+@import "./fonts.css"
+@import "./blinking.css"
+
+td.spaceleft
+  padding-left: .4em
+
+pre.small
+  font-size: .5em
+  padding: 0
+  background-color: #303030 !important
+
+pre.full-width
+  width: 80%
+
+pre.no-scroll
+  overflow: hidden !important
+
+sup
+  font-size: 0.3em
+  position: relative
+  top: -1.5em
+
+li:before
+  content: ''
+
+li.bigfont
+ font-size: 2.2em
+
+.gothicfont
+  font-family: 'League Gothic'
+  font-weight: bold;
+
+.filegothic
+  font-size: 1em
+
+.smallgothic
+  font-size: 2.2em
+
+.bigfont
+  font-size: 3.2em
+
+.stoketitle
+  text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    1px 1px 0 #000;
+  -webkit-font-smoothing: antialiased
+
+.smallstoketitle
+  text-shadow:
+    1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    1px 1px 0 #000;
+  -webkit-font-smoothing: antialiased
+
+.biggothic
+  font-size: 3.2em
+
+.full-width
+  width:100%
+
+.text-align-right
+  text-align: right
+
+h1
+  font-family: 'League Gothic'
+  font-weight: bold;
+  font-size: 4.2em
+
+h1.small
+  font-size: 3.2em
+
+h1 a
+  border: none
+
+h1.name
+  font-size: 1.3em
+  margin: 0
+
+h2
+  font-weight: 900
+
+
+h2.cube
+  margin-bottom: -250px
+
+iframe
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+
+.main-wrap
+  overflow: hidden
+
+.demo-code
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+
+asciinema-player.demo-code
+  font-size: 0.45em
+
+.leftbar
+  float: left
+  width: 50%
+
+.rightbar
+  float: right
+  width: 50%
+
+div.square
+  position: relative
+  display:inline-block
+  max-width:450px
+  min-height:0.5em
+  padding: 1px
+  font-size: .65em
+  color: #000000
+  margin-top: 5px
+  background: #F8FEEA
+  border: #AFC777 solid 3px
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+
+div.dividebyfour
+  position:fixed
+  width:50%
+  height:50%
+
+.NW
+  top:0
+  left:0
+
+
+.NE
+  top:0
+  left:50%
+
+
+.SW
+  top:50%
+  left:0
+
+
+.SE
+  top:50%
+  left:50%
+
+
+.footer
+  font-size: 0.5em
+  color:white
+  position: fixed
+  text-align:left
+  bottom: 0
+  left: 0
+  padding: 10px
+
+.avatar
+  filter: grayscale(30%)
+  width: 120px
+  height: @width
+  border-radius: 100%
+  margin-bottom: .5em
+
+.schemas
+  width: 90%
+  border-radius: 10px
+  margin-bottom: 10px
+
+.schemash
+  height: 90%
+  border-radius: 10px
+  margin-bottom: 10px
+
+.schemashh
+  height: 80%
+  border-radius: 10px
+  margin-bottom: 10px
+
+.listhighlight
+  border-radius: 10px;
+  background: #0F7784;
+  padding: 2px;
+  width: 200px
+
+.listsleft
+  text-align: left
+  list-style-type: none
+
+.description
+  font-size: 0.6em
+
+.logos
+  width: 800px
+
+.two-columns
+  -webkit-column-count: 3
+  -moz-column-count: 3
+  column-count: 3
+
+.code-side
+  float:left
+  display:inline-block
+
+.side-by-side
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  margin: 0.5em
+.images
+  text-align:center;
+
+.bespoke-slide
+  z-index: 1
+
+.bold
+  font-weight: bold;
+
+pre, code
+  margin: 0 !important
+
+.yellow
+  color: black
+  h1
+    border-color: currentColor
+
+.green
+  color: black
+  h1
+    border-color: currentColor
+
+.lists
+  text-align: center
+  list-style-type: none
+
+.underline
+  padding-bottom: 0.25em;
+  border-top-color: rgb(221, 221, 221);
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-right-color: rgb(221, 221, 221);
+  border-right-style: solid;
+  border-right-width: 0;
+  border-bottom-color: rgb(221, 221, 221);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgb(221, 221, 221);
+  border-left-style: solid;
+  border-left-width: 0;
+
+.important
+  color: #f04958
+
+.black
+  color: black
+
+.green
+  color: green
+
+.yellowColor
+  color: yellow
+
+.goldColor
+  color: gold
+
+.blue
+  color: blue
+
+.background-title
+  background-color: rgba(250,250,250,0.6);
+
+.title-single-words
+    word-spacing: 9999px
+    line-height: 1.5em
+    overflow: hidden
+
+.bespoke-slide aside
+  display: none
+
+.image-caption
+  position: absolute
+  bottom: 1.5em
+  right: 0
+  //margin: 0 auto;
+  //width: 100%;
+  background-color: rgba(250,250,250,0.6);
+  color: #fff
+  padding: 0.25em 0.25em 0.1em 0.25em
+
+.bullet.expand
+  transition: all 2s ease
+  opacity: 0
+  overflow-x: hidden
+  overflow-y: visible
+  max-width: 0
+  display: inline-block
+  white-space: nowrap
+  text-align: center
+  line-height: 1.1em
+  position: relative
+  top: .2em
+  &.bespoke-bullet-active
+    opacity: 1
+    max-width: 500px
+
+  
+.title
+  padding-top: 1.5em !important
+
+.black
+  font-color: black
+
+.main
+    background-image: url('../images/devoxx.jpg') no-repeat center fixed
+    background-size: cover
+    background-position: 5 0
+
+.backdrop
+  &--devoxx
+    background-image: url('../images/devoxx.jpg') 
+    background-size: cover
+    background-position: 5 0
+    &.bespoke-backdrop-active
+      transform: none
+      opacity: 1
+  &--title
+    background-image: url('../images/monkey-title.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.6
+  &--dijkstra
+    background: url('../images/dijkstra.jpg') no-repeat center fixed
+    background-size: cover
+    &.bespoke-backdrop-active
+      transform: none
+      opacity: 0.20
+  &--will-it-work
+    background-image: url('../images/fingers-crossed.gif')
+    background-position: 1 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.5
+  &--research
+    background: url('../images/research.jpg') no-repeat center fixed
+    background-size: cover
+    &.bespoke-backdrop-active
+      opacity: 0.20
+  &--troubleshooting
+    background: url('../images/troubleshooting.jpg') no-repeat center fixed
+    background-size: cover
+    &.bespoke-backdrop-active
+      opacity: 0.20
+
+  &--tools
+    background: url('../images/tools.jpg') no-repeat center fixed
+    background-size: cover
+    &.bespoke-backdrop-active
+      opacity: 0.20
+  &--alone
+    background: url('../images/alone.jpg') no-repeat center fixed
+    background-size: cover
+    &.bespoke-backdrop-active
+      opacity: 0.20
+    
+  
+  &--recap
+    background: url('../images/thinking.jpg') no-repeat center fixed
+    background-size: cover
+    &.bespoke-backdrop-active
+      opacity: 0.20  
+  &--demo
+    background-image: url('../images/demo-fireworks.jpeg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.6 
+
+  
+
+  &--prod
+    background-image: url('../images/confused.gif')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      transition: none
+      opacity: 0.1
+
+  &--meet-ike
+    background-image: url('../images/shell.png')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      transition: none
+      opacity: 0.1
+  &--anger
+    background-image: url('../images/anger.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.6 
+  &--istio-security
+    background-image: url('../images/istio-security.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.5
+  &--istio-metrics
+    background-image: url('../images/istio-metrics.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.5 
+  &--istio-recovery
+    background-image: url('../images/istio-recovery.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.2 
+  &--istio-mirroring
+    background-image: url('../images/istio-mirroring.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.3 
+  &--istio-routing
+    background-image: url('../images/istio-routing.jpg')
+    background-position: 5 0
+    filter: brightness(100%);
+    &.bespoke-backdrop-active
+      opacity: 0.18 
+  &--yellow
+    background: #D2D22E
+    &.bespoke-backdrop-active
+      opacity: 1
+  &--green
+    background: #00CC00
+    &.bespoke-backdrop-active
+      opacity: 1
+  &--still
+    transition: opacity 1s ease
+    transform: none
+  &--bw
+    filter: grayscale(100%)
+
+    
