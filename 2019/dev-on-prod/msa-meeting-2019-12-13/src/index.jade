@@ -1,0 +1,124 @@
+mixin slide(names, slideClasses)
+  if names
+    section(class=names+' '+slideClasses, data-bespoke-backdrop='backdrop ' + names.split(' ').map(function(name) { return 'backdrop--' + name; }).join(' '))
+      block
+  else
+    section
+      block
+
+doctype html
+html
+  head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+  title Let's develop on Prod! Wait! Whaaaat?!
+
+  link(rel='stylesheet', type='text/css', href='build/build.css')
+  link(rel='stylesheet', type='text/css', href='build/asciinema-player.css')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+
+  body
+
+    article
+
+      //- +slide('devoxx') 
+      //-   h2.black Let's develop on Prod! 
+      //-   h2.black Wait! <span class='important'>Whaaaat?!</span>
+      //-   h4.black Bartosz Majsak
+      
+      +slide('title')
+        // https://unsplash.com/photos/0MC0o-xLucM
+        h2.title Let's develop on Prod! Wait! <span class='important'>Whaaaat?!</span>
+
+      +slide
+         img.schemash(src='images/monolith.jpg')
+
+      +slide
+        img.schemash(src='images/container.jpg')
+        //https://unsplash.com/photos/RJjY5Hpnifk
+        aside(role='note') there came tools like minikube/shift <br />tempting to spin up the cluster locally with bunch of containers
+
+      +slide
+        img.schemash(src='images/moar-containers.jpg')
+        // https://unsplash.com/photos/fN603qcEA7g
+        aside(role='note') 100x 30mb of RAM 
+
+      +slide
+        img.schemash(src='images/laptop_fire_sm.jpg')
+        aside(role='note') easily reaches 82C on my machine
+
+      +slide('prod')
+        h2.title <span class='important'>Staging</span> environment
+        ul.lists
+          li Challenging to keep in-sync with prod
+          li Extra costs
+          li Uncertainty
+        aside(role='note') With k8s and Istio risk of side effects can be mitigated. obviously there are challenges i.e. stateful/db <br /> no one-size-fits-all solution <br /> Teiid - read from actual db, writes to virtual table
+
+
+      +slide('will-it-work')
+        h2.gothicfont Will it work on <span class='important'>production</span> ?
+        aside(role='note') and in the past our prod was fairly easily to to set up locally and test it.
+
+      +slide
+        img.schemash(src='images/jim-carrey.gif')
+        aside(role='note') our productivity suffered. angry -- leaving
+        aside(role='note') we want to be fast
+
+      +slide
+         img.schemash(src='images/what-if.jpg')
+
+      +slide('meet-ike')
+        h4 <pre class="no-scroll" style="font-size:2.1em; text-transform: lowercase">$ <span class='important'>ike</span> <span class="blinking-cursor">|</span></pre>
+
+      +slide('meet-ike')
+        h2.title What is it?
+        ul.lists
+          li k8s <span class='important'>operator</span> to coordinate cluster setup
+          li <span class='important'>cli</span> tool for local development
+
+      +slide('meet-ike')
+        // https://unsplash.com/photos/GnY_mW1Q6Xc
+        h2 <span class='important'>Goals</span>
+        br
+        h5 Easily validate your changes without interfering other services and users
+        br
+        h5 Interact with other services in the cluster
+        br
+        h5 Write software locally using your favorite tools
+
+
+      +slide
+        img.schemash(src='images/openshift-logo.png', style='background:#fff;')
+        aside(role='note') rh openshift - k8s distro with enterprise grade features
+
+      +slide
+        img.schemash(src='images/istio.png', style='background:#fff;')
+
+      +slide
+          img.schemash(src='images/telepresence-stacked-color.png', style='background:#fff;')
+          aside(role='note') building blogs. targets given pod. we still need orchestration to create new versions of services
+
+      // DEMO
+      +slide('demo')
+        // https://unsplash.com/photos/WPTHZkA-M4I
+        h2.gothicfont.bigfont Demo
+
+      +slide('meet-ike') 
+        h2.title Roadmap
+        ul.lists
+          li <span class='important'>IDE</span> integrations
+          li <span class='important'>CI/CD</span> use cases
+          li <span class='important'>Tell us</span> what else do you need!   
+    
+      +slide
+        div.main-wrap
+          h4.gothicfont(style='font-size:1.5em').fa.fa-github maistra/<span class='important'>istio-workspace</span>          
+          div.rightbar
+            img(src='images/maistra.png', style="width:100%")
+      
+
+    script(src='build/build.js')
+    script(src='build/asciinema-player.js')
+
+
