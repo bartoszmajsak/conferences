@@ -39,7 +39,7 @@
     <version.jboss_spec>3.0.2.Final</version.jboss_spec>
 
     <!-- Testing dependencies -->
-    <version.junit>4.12</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.assertj_core>2.1.0</version.assertj_core>
     <version.arquillian_universe>1.0.0.Alpha3</version.arquillian_universe>
     <version.rest-assured>2.4.1</version.rest-assured>
