@@ -34,7 +34,7 @@
     <version.maven_compiler>3.2</version.maven_compiler>
 
     <!-- Testing dependencies -->
-    <version.junit>4.12</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.assertj_core>3.6.0</version.assertj_core>
     <version.arquillian_universe>1.0.0.Alpha6</version.arquillian_universe>
     <version.shrinkwrap>1.2.6</version.shrinkwrap>
